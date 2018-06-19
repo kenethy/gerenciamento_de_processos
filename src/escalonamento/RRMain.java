@@ -26,7 +26,7 @@ public class RRMain {
 		System.out.println("Informe a quantidade de processos:");
 		int processos = scan.nextInt();
 		System.out.println("PROCESSOS INSERIDOS");
-		
+
 		// Execução do RoundRobin
 		(new RoundRobin(quantum, processos)).run();
 	}
