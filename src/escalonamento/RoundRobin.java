@@ -23,15 +23,17 @@ public class RoundRobin {
 
 	public RoundRobin(int quantum, int quantProcessos) {
 		processos = new PriorityQueue<Processo>(quantProcessos, new Comparator<Processo>() {
-			@Override
-			public int compare(Processo p1, Processo p2) {
-				return p2.getPrioridade() - p1.getPrioridade();
+			@Override // Comparator para realizar a ordenação pela prioridade
+			public int compare(Processo processo1, Processo processo2) {
+				return processo2.getPrioridade() - processo1.getPrioridade();
 			}
 		});
 
+		// Informações de entrada do usuário
 		this.quantum = quantum;
 		this.quantProcessos = quantProcessos;
 
+		// Criação aleatória de processos
 		Random r = new Random();
 		for (int i = 0; i < this.quantProcessos; i++) {
 			int random = r.nextInt(12) + 1;
@@ -41,17 +43,18 @@ public class RoundRobin {
 	}
 
 	public void run() throws InterruptedException {
+		// Execução dos processos pela prioridade
 		while (processos.size() > 0) {
 			while (processos.size() > 0) {
 				System.out.println("Processo em execução: " + processos.peek());
 
 				int quantumaux = 0;
 
-				for (int j = 0; j < quantum; j++) {
+				for (int j = 0; j < quantum; j++) { // Execução do RoundRobin
 					quantumaux++;
 					System.out.println("Executando processo: " + processos.peek().getId());
 					if (quantumaux <= quantum) {
-						Thread.sleep(100);
+						Thread.sleep(5000);
 						processos.peek().setDuracaorestante(processos.peek().getDuracaorestante() - 1);
 					} else
 						break;
@@ -63,6 +66,7 @@ public class RoundRobin {
 					}
 				}
 
+				// Verifica se a lista está vazia e se o processo ainda possui duração
 				if (!processos.isEmpty())
 					if (processos.peek().getDuracaorestante() > 0) {
 						System.out.println("RETORNOU: " + processos.peek());

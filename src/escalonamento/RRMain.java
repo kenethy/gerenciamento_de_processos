@@ -18,6 +18,7 @@ public class RRMain {
 	private static Scanner scan;
 
 	public static void main(String[] args) throws InterruptedException {
+		// Entrada do usuário
 		scan = new Scanner(System.in);
 		System.out.println("Informe o quantum do RR:");
 		int quantum = scan.nextInt();
@@ -25,6 +26,8 @@ public class RRMain {
 		System.out.println("Informe a quantidade de processos:");
 		int processos = scan.nextInt();
 		System.out.println("PROCESSOS INSERIDOS");
+		
+		// Execução do RoundRobin
 		(new RoundRobin(quantum, processos)).run();
 	}
 }
