@@ -29,7 +29,7 @@ public class Produtor extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 		while (true) {
-			synchronized (fila) {
+			//synchronized (fila) {
 				int item = r.nextInt(100); // Criação do item a ser inserido
 				if (fila.fila_cheia()) { // Verificaçao da fila
 					try {
@@ -49,7 +49,7 @@ public class Produtor extends Thread {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			//}
 		}
 	}
 }

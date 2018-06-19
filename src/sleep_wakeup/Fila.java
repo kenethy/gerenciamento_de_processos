@@ -17,7 +17,7 @@ import java.util.Queue;
  * @version Sleep/Wakeup
  */
 
-public class Fila {
+public class Fila extends Thread {
 	int maxFila;
 	Queue<Integer> fila = new LinkedList<Integer>();
 

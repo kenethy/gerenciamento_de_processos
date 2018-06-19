@@ -29,7 +29,7 @@ public class Consumidor extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 		while (true) {
-			synchronized (fila) {
+			//synchronized (fila) {
 				if (fila.fila_vazia()) { // Verificação da Fila
 					try {
 						System.out.println("FILA VAZIA");
@@ -48,7 +48,7 @@ public class Consumidor extends Thread {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			//}
 		}
 	}
 }

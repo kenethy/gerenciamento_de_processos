@@ -54,7 +54,7 @@ public class RoundRobin {
 					quantumaux++;
 					System.out.println("Executando processo: " + processos.peek().getId());
 					if (quantumaux <= quantum) {
-						Thread.sleep(5000);
+						Thread.sleep(1000);
 						processos.peek().setDuracaorestante(processos.peek().getDuracaorestante() - 1);
 					} else
 						break;
